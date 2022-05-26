@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/actuality_selected.xml" value="0.1055" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/buttons_background.xml" value="0.139" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/edit_text_background.xml" value="0.139" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/email_drawable.xml" value="0.139" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/navigation_bar_selected_icon_background.xml" value="0.1055" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/activity_signup.xml" value="0.36666666666666664" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/login_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/test.xml" value="0.36666666666666664" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/menu/bottom_navigation_bar.xml" value="0.17916666666666667" />
       </map>
     </option>
   </component>

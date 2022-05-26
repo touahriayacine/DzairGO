@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/navigation_bar_selected_icon_background"/>
+    <item android:drawable="@drawable/newspaper_blanc" android:height="20dp" android:width="20dp" android:gravity="center"/>
+</layer-list>
