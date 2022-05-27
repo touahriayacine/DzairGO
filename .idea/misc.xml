@@ -7,12 +7,25 @@
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/buttons_background.xml" value="0.139" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/edit_text_background.xml" value="0.139" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/email_drawable.xml" value="0.139" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/gradient.xml" value="0.274" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/navigation_bar_backgorund.xml" value="0.1055" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/navigation_bar_background.xml" value="0.1055" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/navigation_bar_selected_icon_background.xml" value="0.1055" />
-        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/activity_signup.xml" value="0.36666666666666664" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/points.xml" value="0.1055" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/rdius.xml" value="0.1055" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/tag_background.xml" value="0.274" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/activity_signup.xml" value="0.309462915601023" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/actuality_fragment.xml" value="0.1" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/fragment_actuality.xml" value="0.33" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/fragment_map.xml" value="0.36666666666666664" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/login_activity.xml" value="0.36666666666666664" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/one_article.xml" value="0.5" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/side_bar_header.xml" value="0.33" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/side_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/test.xml" value="0.36666666666666664" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/menu/bottom_navigation_bar.xml" value="0.17916666666666667" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/menu/side_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

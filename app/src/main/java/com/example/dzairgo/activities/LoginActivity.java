@@ -1,9 +1,8 @@
-package com.example.dzairgo;
+package com.example.dzairgo.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.icu.util.ULocale;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
@@ -13,8 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.net.InetAddress;
-import java.util.Locale;
+import com.example.dzairgo.R;
 
 public class LoginActivity extends AppCompatActivity {
 

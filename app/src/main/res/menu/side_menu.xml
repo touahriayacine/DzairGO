@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:id="@+id/profil"
+            android:icon="@drawable/user_fill"
+            android:title="profile"
+            />
+        <item android:id="@+id/favoris"
+            android:icon="@drawable/heart"
+            android:title="favoris" />
+        <item android:id="@+id/feedback"
+            android:icon="@drawable/feedback"
+            android:title="feedback" />
+        <item android:id="@+id/faq"
+            android:icon="@drawable/faq"
+            android:title="FAQ" />
+
+</menu>

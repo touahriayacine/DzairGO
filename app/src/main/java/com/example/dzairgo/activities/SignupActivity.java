@@ -1,4 +1,4 @@
-package com.example.dzairgo;
+package com.example.dzairgo.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.dzairgo.R;
+import com.example.dzairgo.activities.LoginActivity;
+import com.example.dzairgo.activities.MainActivity;
 
 public class SignupActivity extends AppCompatActivity {
     ImageView eye1 ;
