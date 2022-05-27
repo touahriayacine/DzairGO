@@ -5,11 +5,11 @@ import java.time.LocalTime;
 
 public class Commentaire {
     private Compte commentateur;
-    private LocalDate date_com;
-    private LocalTime time_Com;
+    private String date_com;
+    private String time_Com;
     private String commentaire;
     public Commentaire(){}
-    public Commentaire(Compte commentateur, LocalDate date_com, LocalTime time_Com, String commentaire) {
+    public Commentaire(Compte commentateur, String date_com, String time_Com, String commentaire) {
         this.commentateur = commentateur;
         this.date_com = date_com;
         this.time_Com = time_Com;
@@ -24,19 +24,19 @@ public class Commentaire {
         this.commentateur = commentateur;
     }
 
-    public LocalDate getDate_com() {
+    public String getDate_com() {
         return date_com;
     }
 
-    public void setDate_com(LocalDate date_com) {
+    public void setDate_com(String date_com) {
         this.date_com = date_com;
     }
 
-    public LocalTime getTime_Com() {
+    public String getTime_Com() {
         return time_Com;
     }
 
-    public void setTime_Com(LocalTime time_Com) {
+    public void setTime_Com(String time_Com) {
         this.time_Com = time_Com;
     }
 

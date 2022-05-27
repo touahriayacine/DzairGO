@@ -6,19 +6,18 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Contenu {
-    private Map<String,Object> structure; // EX: <Image , url>
+    private Map<ElementType,Object> structure; // EX: <Image , url>
     private ArrayList<Commentaire> commentaires;
-    public Contenu(){}
-    public Contenu(Map<String, Object> structure, ArrayList<Commentaire> commentaires) {
+    public Contenu(Map<ElementType, Object> structure, ArrayList<Commentaire> commentaires) {
         this.structure = structure;
         this.commentaires = commentaires;
     }
 
-    public Map<String, Object> getStructure() {
+    public Map<ElementType, Object> getStructure() {
         return structure;
     }
 
-    public void setStructure(Map<String, Object> structure) {
+    public void setStructure(Map<ElementType, Object> structure) {
         this.structure = structure;
     }
 
@@ -30,7 +29,7 @@ public class Contenu {
         this.commentaires = commentaires;
     }
 
-    public void addElement(String type , Object element){
+    public void addElement(ElementType type , Object element){
         this.structure.put(type ,  element);
     }
 }

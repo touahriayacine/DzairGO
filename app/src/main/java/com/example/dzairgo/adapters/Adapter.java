@@ -1,5 +1,6 @@
 package com.example.dzairgo.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,9 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dzairgo.R;
+import com.example.dzairgo.activities.LireArticleActivity;
 import com.example.dzairgo.utils.Article;
 
 import java.util.ArrayList;
@@ -35,6 +38,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.time_passed.setText(articles.get(position).getDate_pub().toString());
         holder.nbComments.setText(articles.get(position).getNb_commentaires()+"");
         holder.article_img.setImageDrawable(holder.itemView.getResources().getDrawable(R.drawable.violon , holder.itemView.getContext().getTheme()));
+        holder.oneArticle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchReadingArticleActivity(view);
+            }
+        });
     }
 
     @Override
@@ -47,6 +56,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         TextView time_passed;
         TextView nbComments;
         ImageView article_img;
+        ConstraintLayout oneArticle;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             wilaya = (TextView) itemView.findViewById(R.id.wilaya);
@@ -54,7 +64,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             time_passed = (TextView) itemView.findViewById(R.id.time_passed);
             nbComments = (TextView) itemView.findViewById(R.id.nb_comments);
             article_img = (ImageView) itemView.findViewById(R.id.image_article);
+            oneArticle = (ConstraintLayout) itemView.findViewById(R.id.one_article);
         }
+    }
+    private void launchReadingArticleActivity(View view){
+        Intent intent = new Intent(view.getContext() , LireArticleActivity.class);
+        view.getContext().startActivity(intent);
     }
 
 }

@@ -1,10 +1,12 @@
 package com.example.dzairgo.utils;
 
+import android.graphics.drawable.Drawable;
+
 public class Compte {
     private String fullName;
-    private String imageUrl;
+    private Drawable imageUrl;
 
-    public Compte(String fullName, String imageUrl) {
+    public Compte(String fullName, Drawable imageUrl) {
         this.fullName = fullName;
         this.imageUrl = imageUrl;
     }
@@ -17,11 +19,11 @@ public class Compte {
         this.fullName = fullName;
     }
 
-    public String getImageUrl() {
+    public Drawable getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImageUrl(Drawable imageUrl) {
         this.imageUrl = imageUrl;
     }
 }

@@ -15,7 +15,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="70dp"
         android:scrollIndicators="none"
         android:scrollbarSize="0dp"
         >
@@ -24,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:paddingHorizontal="15dp"
+        android:layout_marginBottom="70dp"
         >
         <ImageView
             android:id="@+id/search_btn"
