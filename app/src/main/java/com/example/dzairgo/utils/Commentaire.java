@@ -12,7 +12,6 @@ public class Commentaire {
     private String date_com;
     private String time_Com;
     private String commentaire;
-    public Commentaire(){}
     public Commentaire(Compte commentateur, String date_com, String time_Com, String commentaire) {
         this.commentateur = commentateur;
         this.date_com = date_com;
@@ -51,8 +50,5 @@ public class Commentaire {
     public void setCommentaire(String commentaire) {
         this.commentaire = commentaire;
     }
-
-    public void createComment(Context c){
-
     }
-}
+

@@ -3,17 +3,9 @@ package com.example.dzairgo.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentContainerView;
 import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
-import android.content.pm.LauncherActivityInfo;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -22,10 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.dzairgo.R;
-import com.example.dzairgo.adapters.Adapter;
 import com.example.dzairgo.fragments.ActualityFragment;
 import com.example.dzairgo.fragments.MapFragment;
 import com.example.dzairgo.utils.Article;
@@ -33,14 +23,8 @@ import com.example.dzairgo.utils.Commentaire;
 import com.example.dzairgo.utils.Compte;
 import com.example.dzairgo.utils.Contenu;
 import com.example.dzairgo.utils.ElementType;
-import com.google.android.material.navigation.NavigationView;
 
-import java.lang.reflect.Array;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.chrono.ChronoLocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,11 +37,9 @@ public class MainActivity extends AppCompatActivity {
     ImageView activityImg;
     ImageView carteImg;
     FragmentManager fragmentManager;
-    ImageView search_btn;
-    ScrollView sv;
     ConstraintLayout nv ;
     DrawerLayout dl;
-//    NavigationView nv;
+    public int me = 0;
     public ArrayList<Compte> comptes ;
     public ArrayList<Commentaire> commentaires;
     public ArrayList<Article> articles;
@@ -72,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         carteTxt = (TextView) findViewById(R.id.carte_title_nb);
         activityImg = (ImageView) findViewById(R.id.activity_icon_nb);
         carteImg = (ImageView) findViewById(R.id.map_icon_nb);
-        sv = (ScrollView)findViewById(R.id.scrollView);
         nv = (ConstraintLayout) findViewById(R.id.navigation_bar);
         dl = (DrawerLayout) findViewById(R.id.activity_container);
 //        sv.getLayoutParams().height  = dl.getHeight()- nv.getHeight();

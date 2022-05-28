@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -14,13 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dzairgo.R;
 import com.example.dzairgo.activities.LireArticleActivity;
+import com.example.dzairgo.activities.MainActivity;
 import com.example.dzairgo.utils.Article;
 
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
+public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.MyViewHolder> {
     private ArrayList<Article> articles;
-  public Adapter(ArrayList<Article> articles){
+  public ArticleAdapter(ArrayList<Article> articles){
       this.articles = articles;
   }
 
@@ -33,7 +33,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Adapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ArticleAdapter.MyViewHolder holder, int position) {
         holder.wilaya.setText(articles.get(position).getWilaya());
         holder.article_img.setImageDrawable(articles.get(position).getImageUrl());
         holder.article_title.setText(articles.get(position).getTitre());
@@ -72,6 +72,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     private void launchReadingArticleActivity(View view , int position){
         Intent intent = new Intent(view.getContext() , LireArticleActivity.class);
         intent.putExtra("article" , position);
+        intent.putExtra("me" , ((MainActivity)view.getContext()).me );
         view.getContext().startActivity(intent);
     }
 

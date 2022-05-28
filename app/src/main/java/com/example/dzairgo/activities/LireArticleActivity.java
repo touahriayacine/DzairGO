@@ -2,19 +2,27 @@ package com.example.dzairgo.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.dzairgo.R;
+import com.example.dzairgo.adapters.CommentAdapter;
 import com.example.dzairgo.utils.Article;
 import com.example.dzairgo.utils.Commentaire;
 import com.example.dzairgo.utils.Compte;
 import com.example.dzairgo.utils.Contenu;
 import com.example.dzairgo.utils.ElementType;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -29,8 +37,14 @@ public class LireArticleActivity extends AppCompatActivity {
     TextView nbComments;
     ConstraintLayout container;
     ArrayList<Article> articles;
+    RecyclerView commentsList;
+    RecyclerView.LayoutManager lm;
+    CommentAdapter ca;
     public ArrayList<Compte> comptes ;
     public ArrayList<Commentaire> commentaires;
+    Compte me;
+    RelativeLayout publierBtn;
+    EditText comment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,13 +54,24 @@ public class LireArticleActivity extends AppCompatActivity {
         commentaires = genererCommenetaires();
         articles = generArticles();
         article = articles.get(i.getIntExtra("article" , 0));
+        me = comptes.get(i.getIntExtra("me" , 0));
         headerImg = (ImageView) findViewById(R.id.header_img);
         wilayaTag = (TextView) findViewById(R.id.wilaya_tag);
         articleTitle = (TextView) findViewById(R.id.article_big_title);
         timePassedPub = (TextView) findViewById(R.id.time_passed_reading_article);
         nbComments = (TextView) findViewById(R.id.nb_comments_reading_article);
         container = (ConstraintLayout) findViewById(R.id.content_container);
+        publierBtn = (RelativeLayout) findViewById(R.id.publier_btn);
+        comment = (EditText) findViewById(R.id.comment_edit_text);
+        commentsList = (RecyclerView) findViewById(R.id.comments_list);
+        configPublierBtn();
         setContent();
+        if(article.getNb_commentaires() >0){
+            lm = new LinearLayoutManager(this);
+            commentsList.setLayoutManager(lm);
+             ca = new CommentAdapter(this.article.getContenu().getCommentaires());
+            commentsList.setAdapter(ca);
+        }
     }
 
     private void setContent(){
@@ -57,6 +82,28 @@ public class LireArticleActivity extends AppCompatActivity {
         timePassedPub.setText(date_time);
         nbComments.setText(((Integer)article.getNb_commentaires()).toString());
         article.createArticle(this , container);
+    }
+    private void configPublierBtn(){
+        publierBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String commentTxt = comment.getText() + "";
+                if(commentTxt.length() >0){
+                    Commentaire commentaire = new Commentaire(me , "29 May 2022" , "17:48" , commentTxt);
+                    article.getContenu().addCommentaire(commentaire);
+                    comment.setText("");
+                    if(article.getContenu().getCommentaires().size() == 0){
+                        lm = new LinearLayoutManager(view.getContext());
+                        commentsList.setLayoutManager(lm);
+                        ca = new CommentAdapter(article.getContenu().getCommentaires());
+                        commentsList.setAdapter(ca);
+                    }else{
+                        ca.notifyDataSetChanged();
+                    }
+                }
+
+            }
+        });
     }
 
     ArrayList<Compte> genererCompts(){

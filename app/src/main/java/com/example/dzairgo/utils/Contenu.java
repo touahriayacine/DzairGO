@@ -107,10 +107,7 @@ public class Contenu {
     private View createVideo(MediaStore.Video video , Context c , ConstraintLayout parent, boolean isFirstElement , View topElement , int id){
         return null;
     }
-
-    public void createComments(Context c){
-        this.commentaires.forEach(commentaire -> {
-            commentaire.createComment(c);
-        });
+    public void addCommentaire(Commentaire c){
+        this.commentaires.add(c);
     }
 }

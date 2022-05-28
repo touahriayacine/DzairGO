@@ -1,6 +1,5 @@
 package com.example.dzairgo.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,17 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.ScrollView;
 
 import com.example.dzairgo.R;
 import com.example.dzairgo.activities.MainActivity;
-import com.example.dzairgo.adapters.Adapter;
-import com.example.dzairgo.utils.Article;
-import com.example.dzairgo.utils.Contenu;
-import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
+import com.example.dzairgo.adapters.ArticleAdapter;
 
 
 public class ActualityFragment extends Fragment {
@@ -34,8 +27,8 @@ public class ActualityFragment extends Fragment {
         lm = new LinearLayoutManager(view.getContext());
         recyclerView = (RecyclerView) view.findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager(lm);
-        Adapter adapter = new Adapter(((MainActivity)(view.getContext())).articles);
-        recyclerView.setAdapter(adapter);
+        ArticleAdapter articleAdapter = new ArticleAdapter(((MainActivity)(view.getContext())).articles);
+        recyclerView.setAdapter(articleAdapter);
         return view;
     }
 

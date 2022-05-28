@@ -88,6 +88,5 @@ public class Article implements Serializable {
 
     public void createArticle(Context c , ConstraintLayout parent){
         this.contenu.createElements(c , parent);
-        this.contenu.createComments(c);
     }
 }
