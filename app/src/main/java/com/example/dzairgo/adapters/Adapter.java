@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -34,14 +35,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Adapter.MyViewHolder holder, int position) {
         holder.wilaya.setText(articles.get(position).getWilaya());
+        holder.article_img.setImageDrawable(articles.get(position).getImageUrl());
         holder.article_title.setText(articles.get(position).getTitre());
-        holder.time_passed.setText(articles.get(position).getDate_pub().toString());
+        holder.time_passed.setText(articles.get(position).getDate_pub() + " " + articles.get(position).getTime_pub());
         holder.nbComments.setText(articles.get(position).getNb_commentaires()+"");
-        holder.article_img.setImageDrawable(holder.itemView.getResources().getDrawable(R.drawable.violon , holder.itemView.getContext().getTheme()));
+        holder.oneArticle.setTag(position);
         holder.oneArticle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                launchReadingArticleActivity(view);
+                launchReadingArticleActivity(view , (int)view.getTag());
             }
         });
     }
@@ -67,8 +69,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             oneArticle = (ConstraintLayout) itemView.findViewById(R.id.one_article);
         }
     }
-    private void launchReadingArticleActivity(View view){
+    private void launchReadingArticleActivity(View view , int position){
         Intent intent = new Intent(view.getContext() , LireArticleActivity.class);
+        intent.putExtra("article" , position);
         view.getContext().startActivity(intent);
     }
 

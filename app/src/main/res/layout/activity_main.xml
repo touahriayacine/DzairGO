@@ -2,137 +2,140 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/smoke_white"
     tools:context=".activities.MainActivity">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ScrollView
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollIndicators="none"
-        android:scrollbarSize="0dp"
-        >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:paddingHorizontal="15dp"
-        android:layout_marginBottom="70dp"
-        >
-        <ImageView
-            android:id="@+id/search_btn"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/loupe"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/bell"
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollIndicators="none"
+            android:scrollbarSize="0dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    <FrameLayout
-        app:layout_constraintTop_toBottomOf="@+id/search_btn"
-        android:id="@+id/fragments_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:id="@+id/search_btn"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/loupe"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/bell"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <FrameLayout
+                    android:id="@+id/fragments_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/search_btn" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/navigation_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/navigation_bar_background"
+            android:paddingHorizontal="20dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <RelativeLayout
+                android:id="@+id/selected_fragment_bck"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/navigation_bar_selected_icon_background"
+                android:translationX="-80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/actuality_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:translationX="-90dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/activity_icon_nb"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/newspaper_blanc" />
+
+                <TextView
+                    android:id="@+id/activity_title_nb"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="actualité"
+                    android:textColor="@color/white"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/carte_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/actuality_btn"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/map_icon_nb"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/pin_black" />
+
+                <TextView
+                    android:id="@+id/carte_title_nb"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="carte"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/navigation_bar"
-    android:background="@drawable/navigation_bar_background"
-android:layout_height="70dp"
-android:layout_width="match_parent"
-android:paddingHorizontal="20dp"
-app:layout_constraintBottom_toBottomOf="parent">
-
-<RelativeLayout
-    android:background="@drawable/navigation_bar_selected_icon_background"
-    android:id="@+id/selected_fragment_bck"
-    android:layout_height="40dp"
-    android:layout_marginBottom="10dp"
-    android:layout_marginRight="30dp"
-    android:layout_width="140dp"
-    android:translationX="-80dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
-
-<LinearLayout
-    android:id="@+id/actuality_btn"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:layout_width="wrap_content"
-    android:translationX="-90dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
-
-    <ImageView
-        android:id="@+id/activity_icon_nb"
-        android:layout_height="20dp"
-        android:layout_width="20dp"
-        android:src="@drawable/newspaper_blanc" />
-
-    <TextView
-        android:fontFamily="@font/poppins_semibold"
-        android:id="@+id/activity_title_nb"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_width="60dp"
-        android:text="actualité"
-        android:textColor="@color/white"
-        android:textSize="12dp" />
-</LinearLayout>
-
-<LinearLayout
-    android:id="@+id/carte_btn"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:layout_marginLeft="30dp"
-    android:layout_width="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/actuality_btn"
-    app:layout_constraintTop_toTopOf="parent">
-
-    <ImageView
-        android:id="@+id/map_icon_nb"
-        android:layout_height="20dp"
-        android:layout_width="20dp"
-        android:src="@drawable/pin_black" />
-
-    <TextView
-        android:fontFamily="@font/poppins_semibold"
-        android:id="@+id/carte_title_nb"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_width="60dp"
-        android:text="carte"
-        android:textColor="@color/white"
-        android:textSize="12dp"
-        android:visibility="gone" />
-</LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/side_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:headerLayout="@layout/side_bar_header"
-        app:menu="@menu/side_menu"
         android:layout_gravity="start"
-        />
+        app:headerLayout="@layout/side_bar_header"
+        app:menu="@menu/side_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

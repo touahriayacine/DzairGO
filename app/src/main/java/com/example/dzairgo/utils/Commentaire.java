@@ -1,5 +1,9 @@
 package com.example.dzairgo.utils;
 
+import android.content.Context;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -46,5 +50,9 @@ public class Commentaire {
 
     public void setCommentaire(String commentaire) {
         this.commentaire = commentaire;
+    }
+
+    public void createComment(Context c){
+
     }
 }

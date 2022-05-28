@@ -1,6 +1,8 @@
 package com.example.dzairgo.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +20,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
     ImageView carteImg;
     FragmentManager fragmentManager;
     ImageView search_btn;
+    ScrollView sv;
+    ConstraintLayout nv ;
+    DrawerLayout dl;
 //    NavigationView nv;
     public ArrayList<Compte> comptes ;
     public ArrayList<Commentaire> commentaires;
@@ -66,9 +72,10 @@ public class MainActivity extends AppCompatActivity {
         carteTxt = (TextView) findViewById(R.id.carte_title_nb);
         activityImg = (ImageView) findViewById(R.id.activity_icon_nb);
         carteImg = (ImageView) findViewById(R.id.map_icon_nb);
-//        menu_btn = (ImageView) findViewById(R.id.menu_btn);
-//        nv = (NavigationView) findViewById(R.id.side_menu);
-//        configMenu();
+        sv = (ScrollView)findViewById(R.id.scrollView);
+        nv = (ConstraintLayout) findViewById(R.id.navigation_bar);
+        dl = (DrawerLayout) findViewById(R.id.activity_container);
+//        sv.getLayoutParams().height  = dl.getHeight()- nv.getHeight();
         configActivityBtn();
         configCarteBtn();
         launchActualityFragment();
@@ -172,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
         commentaires.clear();
         commentaires.add(this.commentaires.get(0));
         Contenu contenu3 = new Contenu(structure, commentaires);
-        articles.add(new Article("Musée nationale publique maritime " , this.getDrawable(R.drawable.place_2) , "27 Mai 2022" , "19:20" , 1 ,contenu3 , "Alger" ));
+        articles.add(new Article("Musée nationale publique maritime " , this.getDrawable(R.drawable.place_3) , "27 Mai 2022" , "19:20" , 1 ,contenu3 , "Alger" ));
 
         structure.clear();
         structure.put(ElementType.TEXT , "Ce port est un endroit de grand repère dans l'histoire de l'Algérie, marquant le débarquement de l'armée française, un 5 juillet 1830\n" +
@@ -181,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                 "On y propose également des petits tours de 45 mins en poney ou en bateau, pour s'offrir un moment agréable et paisible et profiter de la vue magnifique de ce port ");
         structure.put(ElementType.IMAGE , this.getDrawable(R.drawable.place_4));
         Contenu contenu4 = new Contenu(structure, null);
-        articles.add(new Article("Port de Sidi Fredj" , this.getDrawable(R.drawable.place_2) , "27 Mai 2022" , "21:50" , 0 ,contenu4 , "Alger" ));
+        articles.add(new Article("Port de Sidi Fredj" , this.getDrawable(R.drawable.place_4) , "27 Mai 2022" , "21:50" , 0 ,contenu4 , "Alger" ));
 
         structure.clear();
         structure.put(ElementType.TEXT , "L'ancien parc de Galland a été inauguré en 1915 par Charles de Galland, maire d'Alger de 1910 à 1919 et proviseur du lycée de Ben Aknoun, qui fit don à la ville de ce magnifique terrain.\n" +
@@ -195,21 +202,7 @@ public class MainActivity extends AppCompatActivity {
         commentaires.add(this.commentaires.get(2));
         commentaires.add(this.commentaires.get(3));
         Contenu contenu5 = new Contenu(structure, commentaires);
-        articles.add(new Article("Parc de Beyrout (Mont riant)" , this.getDrawable(R.drawable.place_2) , "27 Mai 2022" , "22:00" , 4 ,contenu5 , "Alger" ));
+        articles.add(new Article("Parc de Beyrout (Mont riant)" , this.getDrawable(R.drawable.place_5) , "27 Mai 2022" , "22:00" , 4 ,contenu5 , "Alger" ));
         return articles;
     }
-
-    //    private void configMenu() {
-//        menu_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                int width = nv.getWidth();
-//                Animation animation = new TranslateAnimation(0,width,0,0);
-//                animation.setDuration(300);
-//                animation.setFillAfter(true);
-//                nv.startAnimation(animation);
-//            }
-//        });
-//    }
-
 }

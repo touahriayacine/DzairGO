@@ -1,18 +1,23 @@
 package com.example.dzairgo.utils;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.text.Layout;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Article {
-    private String titre;
-    private Drawable imageUrl;
-    private String date_pub;
-    private String time_pub;
-    private int nb_commentaires;
-    private Contenu contenu;
-    private String wilaya;
+public class Article implements Serializable {
+    private transient String titre;
+    private transient Drawable imageUrl;
+    private transient String date_pub;
+    private transient String time_pub;
+    private transient int nb_commentaires;
+    private transient Contenu contenu;
+    private transient String wilaya;
 
     public Article(String titre, Drawable imageUrl, String date_pub, String time_pub, int nb_commentaires, Contenu contenu, String wilaya) {
         this.titre = titre;
@@ -79,5 +84,10 @@ public class Article {
 
     public void setContenu(Contenu contenu) {
         this.contenu = contenu;
+    }
+
+    public void createArticle(Context c , ConstraintLayout parent){
+        this.contenu.createElements(c , parent);
+        this.contenu.createComments(c);
     }
 }

@@ -26,6 +26,7 @@ import java.util.ArrayList;
 public class ActualityFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager lm ;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
