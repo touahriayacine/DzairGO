@@ -19,4 +19,5 @@
     <color name="grey7">#EEEEEE</color>
     <color name="grey8">#3E3E3E</color>
     <color name="grey9">#CCE9E9E9</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

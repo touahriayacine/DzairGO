@@ -19,6 +19,8 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.MyViewHolder> {
     ArrayList<Commentaire> commentaires;
 
@@ -37,7 +39,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull CommentAdapter.MyViewHolder holder, int position) {
         holder.comment.setText(commentaires.get(position).getCommentaire());
-        holder.img.setImageDrawable(commentaires.get(position).getCommentateur().getImageUrl());
+//        holder.img.setImageDrawable(commentaires.get(position).getCommentateur().getImageUrl());
+        holder.img.setImageDrawable(holder.itemView.getResources().getDrawable(R.drawable.user_fill));
         holder.commentateur.setText(commentaires.get(position).getCommentateur().getFullName());
         holder.date_time.setText(commentaires.get(position).getDate_com() + " " + commentaires.get(position).getTime_Com());
     }
@@ -48,7 +51,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.MyViewHo
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView img;
+        CircleImageView img;
         TextView commentateur;
         TextView comment;
         TextView date_time;
@@ -56,7 +59,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.MyViewHo
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            img = (ImageView) itemView.findViewById(R.id.comment_avatar);
+            img = (CircleImageView) itemView.findViewById(R.id.comment_avatar);
             commentateur = (TextView) itemView.findViewById(R.id.commentateur);
             comment = (TextView) itemView.findViewById(R.id.comment);
             date_time = (TextView) itemView.findViewById(R.id.date_time_comment);

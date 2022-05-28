@@ -15,6 +15,7 @@
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/navigation_bar_selected_icon_background.xml" value="0.1055" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/points.xml" value="0.1055" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/publier_background.xml" value="0.2745" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/radius.xml" value="0.275" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/rdius.xml" value="0.1055" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/tag_background.xml" value="0.274" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/drawable/test_drawable.xml" value="0.2745" />
@@ -28,9 +29,11 @@
         <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/login_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/one_article.xml" value="0.5" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/one_comment.xml" value="0.36666666666666664" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/one_image.xml" value="0.36666666666666664" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/side_bar_header.xml" value="0.33" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/side_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/test.xml" value="0.36666666666666664" />
+        <entry key="..\:/java applications/DzairGO/app/src/main/res/layout/toolbar.xml" value="0.36666666666666664" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/menu/bottom_navigation_bar.xml" value="0.17916666666666667" />
         <entry key="..\:/java applications/DzairGO/app/src/main/res/menu/side_menu.xml" value="0.36666666666666664" />
       </map>

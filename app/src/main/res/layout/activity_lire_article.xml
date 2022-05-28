@@ -16,7 +16,6 @@
             android:id="@+id/header_img"
             android:layout_width="match_parent"
             android:layout_height="480dp"
-            android:src="@drawable/violon"
             android:scaleType="centerCrop"
            app:layout_constraintTop_toTopOf="parent"
             />
@@ -150,17 +149,17 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/comment_container"
                 >
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/person"
                 android:id="@+id/my_avatar_comment"
                 />
                 <TextView
-                    app:layout_constraintTop_toTopOf="@+id/my_avatar_comment"
+                    android:id="@+id/my_name"
                     app:layout_constraintBottom_toBottomOf="@id/my_avatar_comment"
+                    app:layout_constraintTop_toTopOf="@id/my_avatar_comment"
                     app:layout_constraintStart_toEndOf="@id/my_avatar_comment"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"

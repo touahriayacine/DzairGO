@@ -36,6 +36,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.MyViewHo
     public void onBindViewHolder(@NonNull ArticleAdapter.MyViewHolder holder, int position) {
         holder.wilaya.setText(articles.get(position).getWilaya());
         holder.article_img.setImageDrawable(articles.get(position).getImageUrl());
+        holder.article_img.setClipToOutline(true);
         holder.article_title.setText(articles.get(position).getTitre());
         holder.time_passed.setText(articles.get(position).getDate_pub() + " " + articles.get(position).getTime_pub());
         holder.nbComments.setText(articles.get(position).getNb_commentaires()+"");

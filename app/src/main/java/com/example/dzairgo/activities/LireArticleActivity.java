@@ -28,6 +28,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class LireArticleActivity extends AppCompatActivity {
     Article article;
     ImageView headerImg ;
@@ -45,6 +47,7 @@ public class LireArticleActivity extends AppCompatActivity {
     Compte me;
     RelativeLayout publierBtn;
     EditText comment;
+    CircleImageView myAvatar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +67,9 @@ public class LireArticleActivity extends AppCompatActivity {
         publierBtn = (RelativeLayout) findViewById(R.id.publier_btn);
         comment = (EditText) findViewById(R.id.comment_edit_text);
         commentsList = (RecyclerView) findViewById(R.id.comments_list);
+        myAvatar = (CircleImageView)findViewById(R.id.my_avatar_comment);
+//        myAvatar.setImageDrawable(me.getImageUrl());
+        myAvatar.setImageDrawable(getDrawable(R.drawable.user_fill));
         configPublierBtn();
         setContent();
         if(article.getNb_commentaires() >0){
@@ -160,7 +166,8 @@ public class LireArticleActivity extends AppCompatActivity {
                 "Le parking est disponible pour 200da.\n" +
                 "On y propose également des petits tours de 45 mins en poney ou en bateau, pour s'offrir un moment agréable et paisible et profiter de la vue magnifique de ce port ");
         structure4.put(ElementType.IMAGE , this.getDrawable(R.drawable.place_4));
-        Contenu contenu4 = new Contenu(structure4, null);
+        ArrayList<Commentaire> commentaires4 = new ArrayList<>();
+        Contenu contenu4 = new Contenu(structure4, commentaires4);
         articles.add(new Article("Port de Sidi Fredj" , this.getDrawable(R.drawable.place_4) , "27 Mai 2022" , "21:50" , 0 ,contenu4 , "Alger" ));
 
         Map<ElementType, Object> structure5 = new HashMap<>();

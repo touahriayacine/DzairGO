@@ -5,6 +5,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -14,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.example.dzairgo.R;
 import com.example.dzairgo.fragments.ActualityFragment;
@@ -28,6 +31,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MainActivity extends AppCompatActivity {
     LinearLayout activity_btn;
     LinearLayout carte_btn;
@@ -39,14 +44,20 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
     ConstraintLayout nv ;
     DrawerLayout dl;
+    public ArrayList<Drawable> images;
     public int me = 0;
     public ArrayList<Compte> comptes ;
     public ArrayList<Commentaire> commentaires;
     public ArrayList<Article> articles;
+    String currentFragment = "actuality";
+    CircleImageView avatar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        avatar = (CircleImageView) findViewById(R.id.avatar);
+//        avatar.setImageDrawable(comptes.get(me).getImageUrl());
+//        avatar.setImageDrawable(getDrawable(R.drawable.user_fill));
         activity_btn = (LinearLayout) findViewById(R.id.actuality_btn);
         carte_btn = (LinearLayout) findViewById(R.id.carte_btn);
         backgroundSelectedFragment = (RelativeLayout) findViewById(R.id.selected_fragment_bck);
@@ -56,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         carteImg = (ImageView) findViewById(R.id.map_icon_nb);
         nv = (ConstraintLayout) findViewById(R.id.navigation_bar);
         dl = (DrawerLayout) findViewById(R.id.activity_container);
-//        sv.getLayoutParams().height  = dl.getHeight()- nv.getHeight();
+        images = generFest();
         configActivityBtn();
         configCarteBtn();
         launchActualityFragment();
@@ -68,12 +79,13 @@ public class MainActivity extends AppCompatActivity {
         activity_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                animateNavigationBar(0);
-                carteImg.setImageDrawable(view.getResources().getDrawable(R.drawable.pin_black , getTheme()));
+                animateReverse(523);
+                carteImg.setImageDrawable(view.getResources().getDrawable(R.drawable.epingle , getTheme()));
                 carteTxt.setVisibility(View.GONE);
                 activityImg.setImageDrawable(view.getResources().getDrawable(R.drawable.newspaper_blanc , getTheme()));
                 activityTxt.setVisibility(View.VISIBLE);
                 launchActualityFragment();
+                currentFragment = "actuality";
             }
         });
     }
@@ -81,21 +93,33 @@ public class MainActivity extends AppCompatActivity {
         carte_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                animateNavigationBar(500);
+                animate(523);
                 carteImg.setImageDrawable(view.getResources().getDrawable(R.drawable.pin_blanc , getTheme()));
                 carteTxt.setVisibility(View.VISIBLE);
                 activityImg.setImageDrawable(view.getResources().getDrawable(R.drawable.newspaper_black , getTheme()));
                 activityTxt.setVisibility(View.GONE);
                 launchMapFragment();
+                currentFragment = "map";
             }
         });
     }
-    private void animateNavigationBar(int num){
-        Animation animation = new TranslateAnimation(0, num,0, 0);
-        animation.setDuration(400);
-        animation.setFillAfter(true);
-        backgroundSelectedFragment.startAnimation(animation);
+    private void animate(int num){
+        if(! currentFragment.equals("map")){
+            Animation animation1 = new TranslateAnimation(0, num,0, 0);
+            animation1.setDuration(300);
+            animation1.setFillAfter(true);
+            backgroundSelectedFragment.startAnimation(animation1);
+        }
     }
+    private void animateReverse(int num){
+        if(! currentFragment.equals("actuality")){
+            Animation animation1 = new TranslateAnimation(num, 0,0, 0);
+            animation1.setDuration(400);
+            animation1.setFillAfter(true);
+            backgroundSelectedFragment.startAnimation(animation1);
+        }
+    }
+
     private void launchActualityFragment(){
         fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
@@ -112,7 +136,13 @@ public class MainActivity extends AppCompatActivity {
                 .addToBackStack("actualite")
                 .commit();
     }
-
+    ArrayList<Drawable> generFest(){
+        ArrayList<Drawable> images = new ArrayList<>();
+        images.add(getDrawable(R.drawable.fest1));
+        images.add(getDrawable(R.drawable.fest2));
+        images.add(getDrawable(R.drawable.fest3));
+        return  images;
+    }
     ArrayList<Compte> genererCompts(){
         ArrayList<Compte> comptes = new ArrayList<>();
         comptes.add(new Compte("Laouchedi Karim" , this.getDrawable(R.drawable.person)));

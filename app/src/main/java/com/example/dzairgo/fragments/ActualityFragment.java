@@ -9,16 +9,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 
 import com.example.dzairgo.R;
 import com.example.dzairgo.activities.MainActivity;
 import com.example.dzairgo.adapters.ArticleAdapter;
+import com.example.dzairgo.adapters.PannelAdapter;
 
 
 public class ActualityFragment extends Fragment {
     RecyclerView recyclerView;
-    RecyclerView.LayoutManager lm ;
+    RecyclerView.LayoutManager lm;
+    ImageView banner;
+    RecyclerView pannel;
+    RecyclerView.LayoutManager lm2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,8 +32,14 @@ public class ActualityFragment extends Fragment {
         lm = new LinearLayoutManager(view.getContext());
         recyclerView = (RecyclerView) view.findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager(lm);
-        ArticleAdapter articleAdapter = new ArticleAdapter(((MainActivity)(view.getContext())).articles);
+        ArticleAdapter articleAdapter = new ArticleAdapter(((MainActivity) (view.getContext())).articles);
         recyclerView.setAdapter(articleAdapter);
+        lm2 = new LinearLayoutManager(view.getContext());
+        pannel = (RecyclerView)view.findViewById(R.id.panel);
+        pannel.setLayoutManager(lm2);
+        PannelAdapter pannelAdapter = new PannelAdapter(((MainActivity) view.getContext()).images);
+        pannel.setAdapter(pannelAdapter);
+
         return view;
     }
 
